@@ -1,133 +1,205 @@
-/* Resetando margens e padding para todos os elementos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-header {
-    background-color: #1e90ff;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2em;
-}
-
-main {
-    padding: 20px;
+  background: linear-gradient(135deg, #f5f5f7 0%, #eaeaf0 100%);
+  color: #4b367c;
+  margin: 0;
+  padding: 3rem 2rem;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 3rem 3.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(75, 54, 124, 0.15);
+  border: 1px solid #d8d8dd;
+  animation: fadeIn 1s ease forwards;
 }
 
-.description {
-    text-align: center;
-    margin-bottom: 30px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.description h2 {
-    font-size: 2em;
-    margin-bottom: 15px;
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: #5a45a5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 3px 10px rgba(90, 69, 165, 0.35);
+  position: relative;
+  animation: bounce 2s infinite alternate;
 }
 
-.form-section {
-    background-color: #ffffff;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 100%;
-    max-width: 600px;
+h1::after {
+  content: '🎓';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  animation: spin 4s linear infinite;
 }
 
-.form-section h3 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    text-align: center;
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
 }
 
-.form-group {
-    margin-bottom: 15px;
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+form > div {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+label::before {
+  content: '🔹';
+  margin-right: 0.5rem;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 label {
-    font-size: 1.1em;
-    display: block;
-    margin-bottom: 8px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #6c5aa3;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
 }
 
-input[type="text"], select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+select {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border: 2px solid #c4c4c9;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  color: #4b367c;
+  background: #fefeff;
+  box-shadow: inset 0 2px 8px rgba(75, 54, 124, 0.1);
+  appearance: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #1e90ff;
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+select:focus {
+  outline: none;
+  border-color: #5a45a5;
+  box-shadow: 0 0 12px rgba(90, 69, 165, 0.6);
+  background: #fafaff;
+  color: #3a2c6f;
 }
 
-button:hover {
-    background-color: #4682b4;
+select:focus + label {
+  opacity: 0.6;
 }
 
-.career-suggestions {
-    margin-top: 40px;
-    text-align: center;
+button#btnEnviar {
+  width: 100%;
+  background: linear-gradient(135deg, #5a45a5, #43347a);
+  border: none;
+  padding: 1rem 0;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(90, 69, 165, 0.7);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
 }
 
-.career-suggestions h3 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
+button#btnEnviar::after {
+  content: '🚀';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  animation: bounce 2s infinite alternate;
 }
 
-.career-list {
-    list-style-type: none;
-    padding: 0;
+button#btnEnviar:hover {
+  background: linear-gradient(135deg, #43347a, #5a45a5);
+  box-shadow: 0 12px 28px rgba(67, 52, 122, 0.8);
+  transform: scale(1.05);
+  animation: pulse 0.6s;
 }
 
-.career-list li {
-    background-color: #fff;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.1em;
+.resultado {
+  margin-top: 3.5rem;
+  animation: fadeIn 1s ease forwards;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+.faculdade-card {
+  background: #f7f7fa;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 8px 24px rgba(75, 54, 124, 0.15);
+  border: 1px solid #d8d8dd;
+  transform: translateX(-50px);
+  opacity: 0;
+  animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.faculdade-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(90, 69, 165, 0.4);
+  border-color: #5a45a5;
+}
+
+.faculdade-card h3::before {
+  content: '🏫';
+  margin-right: 0.5rem;
+  display: inline-block;
+  animation: bounce 2s infinite alternate;
+}
+
+.faculdade-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #5a45a5;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.faculdade-card p {
+  margin: 0.25rem 0;
+  color: #5c599f;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 400;
 }
