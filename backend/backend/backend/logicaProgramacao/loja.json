@@ -1,0 +1,8 @@
+[
+    {
+        "nome_produto": "Carne",
+        "quantidade": 3,
+        "preco": 44.9,
+        "tem_estoque": true
+    }
+]
