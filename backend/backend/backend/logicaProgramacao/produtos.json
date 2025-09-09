@@ -1,0 +1,8 @@
+[
+    {
+        "id_produto": 101,
+        "nome_produto": "iPhone 13",
+        "preco": 4999.0,
+        "id_categoria_associada": 1
+    }
+]
