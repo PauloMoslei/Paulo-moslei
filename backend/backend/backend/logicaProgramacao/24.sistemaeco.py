@@ -37,8 +37,8 @@ def listar_categorias():
         print("Nenhuma categoria cadastrada.\n")
         return
     print("___ Categorias ___")
-    for c in categorias:
-        print(f"[{c['id_categoria']}] {c['nome_categoria']}")
+    for lista in categorias:
+        print(f"[{lista['id_categoria']}]  {lista['nome_categoria']}")
     print()
 
 def cadastrar_produto():
@@ -57,11 +57,11 @@ def cadastrar_produto():
 
         nome = input("Nome do produto: ")
         preco = float(input("Preço do produto: "))
-        id_cat = int(input("ID da categoria associada: "))
+        id_categoria = int(input("ID da categoria associada: "))
 
         encontrado = False
-        for c in categorias:
-            if c["id_categoria"] == id_cat:
+        for lista in categorias:
+            if lista["id_categoria"] == id_categoria:
                 encontrado = True
                 break
 
@@ -73,7 +73,7 @@ def cadastrar_produto():
             "id_produto": id_produto,
             "nome_produto": nome,
             "preco": preco,
-            "id_categoria_associada": id_cat
+            "id_categoria_associada": id_categoria
         }
 
         produtos.append(novo_produto)
@@ -87,15 +87,15 @@ def listar_produtos():
         return
 
     print("___ Produtos ___")
-    for p in produtos:
+    for lista2 in produtos:
         categoria_nome = "Categoria Desconhecida"
-        for c in categorias:
-            if c["id_categoria"] == p["id_categoria_associada"]:
-                categoria_nome = c["nome_categoria"]
+        for lista in categorias:
+            if lista["id_categoria"] == lista2["id_categoria_associada"]:
+                categoria_nome = lista["nome_categoria"]
                 break
-        print(f"\nID: {p['id_produto']}")
-        print(f"Nome: {p['nome_produto']}")
-        print(f"Preço: R$ {p['preco']:.2f}")
+        print(f"\nID: {lista2['id_produto']}")
+        print(f"Nome: {lista2['nome_produto']}")
+        print(f"Preço: R$ {lista2['preco']}")
         print(f"Categoria: {categoria_nome}")
     print()
 
