@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Adicionar Tarefa</title>
+    <link rel="stylesheet" href="{% static 'form/form.css' %}">
+</head>
+<body>
+    <h1>Adicionar nova Tarefa</h1>
+    <form method="POST">
+        <!--- csrf_token serve para proteger o sistema de ataques no envio do formulário -->
+        {% csrf_token %} <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea><br><br>
+
+        <button type="submit">Salvar Tarefa</button>
+    </form>
+    <a href="{% url 'lista_tarefas' %}">Cancelar</a>
+</body>
+</html>
