@@ -1,81 +1,80 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 h1 {
-  text-align: center;
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px 0;
-  margin: 0;
+    color: #2c3e50;
+    margin-bottom: 20px;
 }
 
-hr {
-  border: none;
-  height: 2px;
-  background-color: #ddd;
-  margin: 0;
+a {
+    text-decoration: none;
+    color: #2980b9;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+/* Link para adicionar tarefa */
+a strong {
+    display: inline-block;
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+a strong:hover {
+    background-color: #219150;
+}
+
+/* Estilo das tarefas */
 .tarefa {
-  background-color: white;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+}
+
+.tarefa:hover {
+    background-color: #f0f8ff;
 }
 
 .tarefa h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-}
-
-.tarefa h2 a {
-  text-decoration: none;
-  color: #4CAF50;
-}
-
-.tarefa h2 a:hover {
-  text-decoration: underline;
+    margin-bottom: 10px;
+    font-size: 1.3em;
 }
 
 .tarefa p {
-  font-size: 1em;
-  margin: 10px 0;
+    margin-bottom: 8px;
+    color: #555;
 }
 
 .tarefa small {
-  color: #888;
+    color: #999;
 }
 
+/* Tarefa concluída */
 .tarefa.concluida {
-  background-color: #e0ffe0;
-  border-left: 6px solid #4CAF50;
-  opacity: 0.7;
-}
-
-.tarefa.concluida h2 a {
-  color: #2e7d32;
-  text-decoration: line-through;
-}
-
-p {
-  text-align: center;
-  margin-top: 40px;
-}
-
-p a {
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-p a:hover {
-  text-decoration: underline;
+    opacity: 0.6;
+    border-left-color: #2ecc71;
+    text-decoration: line-through;
 }

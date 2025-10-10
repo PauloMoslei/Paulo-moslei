@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
     {% load static %}
-    <meta charset="UTF-8">
-    <title>Adicionar Tarefa</title>
-    <link rel="stylesheet" href="{% static 'form/form.css' %}">
-</head>
-<body>
-    <h1>Adicionar nova Tarefa</h1>
-    <form method="POST">
-        <!--- csrf_token serve para proteger o sistema de ataques no envio do formulário -->
-        {% csrf_token %} <label for="titulo">Título:</label><br>
-        <input type="text" id="titulo" name="titulo" required><br><br>
+    <meta charset="UTF-8"> 
+    <title>{% if tarefa %}Alterar Tarefa{% else %}Adicionar Tarefa{% endif %}</title> 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'lista/form.css' %}">
 
-        <label for="descricao">Descrição:</label><br>
-        <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea><br><br>
+</head> 
+<body> 
+    <h1>{% if tarefa %}Alterar Tarefa{% else %}Adicionar Nova Tarefa{% endif %}</h1> 
 
-        <button type="submit">Salvar Tarefa</button>
-    </form>
-    <a href="{% url 'lista_tarefas' %}">Cancelar</a>
-</body>
-</html>
+    <form method="POST"> 
+        {% csrf_token %} 
+        <label for="titulo">Título:</label><br> 
+        <input type="text" id="titulo" name="titulo" value="{{ tarefa.titulo|default:'' }}" required><br><br> 
+
+        <label for="descricao">Descrição:</label><br> 
+        <textarea id="descricao" name="descricao" rows="4" cols="50">{{ tarefa.descricao|default:'' }}</textarea><br><br> 
+        
+        {% if tarefa %} 
+            <label for="concluido">Concluída:</label> 
+            <input type="checkbox" id="concluido" name="concluido" {% if tarefa.concluido %}checked{% endif %}><br><br> 
+        {% endif %} 
+
+        <button type="submit">Salvar</button> 
+    </form> 
+
+    <a href="{% url 'lista_tarefas' %}">Cancelar</a> 
+</body> 
+</html> 
