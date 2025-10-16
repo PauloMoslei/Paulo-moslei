@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Minha Lista de Projetos</title>
+    <link rel="stylesheet" href="{% static 'lista/lista.css' %}">
+</head>
+<body>
+    <h1>Gerenciador de projetos Web</h1>
+    <a href="{% url 'adicionar_projeto' %}"><strong>+ Adicionar Projeto</strong></a>
+    <hr>
+    {% for projeto in minhas_projetos %}
+        <div class="projeto {% if projeto.concluida %}concluida{% endif %}">
+            <h2><a href="{% url 'detalhe_projeto' projeto.id %}">{{projeto.nome}}</a></h2>
+            <p>{{projeto.descricao}}</p>
+            <small>Criada em: {{ projeto.data_criacao}}</small>
+        </div>
+    {% empty %}
+         <p>Nenhum projeto cadastrado ainda. Adicione alguns no <a href="/admin/">Admin</a></p>
+    {% endfor %}
+</body>
+</html>
